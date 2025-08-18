@@ -3,561 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hunar Seekho Academy - Pro Counselling Sheet</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* --- High Contrast B&W Optimized Theme --- */
-        :root {
-            --border-color: #a0a0a0; /* Darker border */
-            --text-color: #000000; /* Pure black text */
-            --heading-color: #000000;
-            --sidebar-bg: #f5f5f5; /* Light grey for subtle separation */
-        }
-        
-        * {
-            box-sizing: border-box; 
-        }
-
-        body {
-            background-color: #d9d9d9;
-            font-family: 'Roboto', sans-serif; /* Changed to Roboto for better rendering */
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-        }
-
-        /* --- A4 Page ki Styling (Bordered) --- */
-        .page {
-            background: white;
-            width: 21cm;
-            height: 29.7cm;
-            min-height: 29.7cm;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            border: 1.5px solid #000; /* Thicker main border */
-            padding: 20px; 
-        }
-
-        /* --- Front Page ka Layout --- */
-        .front-page-container {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            height: 100%;
-        }
-        
-        .front-page-content {
-            display: flex;
-            flex-grow: 1;
-            border-top: 2px solid var(--heading-color);
-            border-bottom: 2px solid var(--heading-color);
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-
-        /* --- Header Design (High Contrast) --- */
-        .page-header {
-            text-align: center;
-        }
-        .page-header .institute-name {
-            font-family: 'Poppins', sans-serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--heading-color);
-            letter-spacing: 1px;
-        }
-        .page-header .tagline {
-            font-size: 16px;
-            font-weight: 500;
-            color: #333;
-            margin-top: 4px;
-            font-style: italic;
-        }
-
-        /* --- UPDATED Sidebar Layout --- */
-        .sidebar {
-            width: 25%; 
-            padding: 15px;
-            font-size: 12.5px;
-            border-right: 1.5px solid #888; /* Darker border */
-            background-color: var(--sidebar-bg);
-        }
-        .sidebar h4 {
-            font-family: 'Poppins', sans-serif;
-            margin-top: 0;
-            padding-bottom: 8px;
-            color: var(--heading-color);
-            border-bottom: 1.5px solid #555; /* Darker border */
-            font-size: 16px;
-        }
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 15px 0 0 0;
-        }
-        .sidebar ul li {
-            margin-bottom: 15px;
-            display: flex;
-            line-height: 1.4;
-            font-weight: 700; /* Bolder text */
-        }
-        .sidebar .icon {
-            margin-right: 10px;
-            font-weight: bold;
-            margin-top: 2px;
-        }
-
-        /* --- Main Counselling Area --- */
-        .main-area {
-            flex-grow: 1;
-            padding: 20px;
-            position: relative;
-        }
-        .main-area::before {
-            content: 'HUNAR SEEKHO'; 
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-30deg);
-            font-size: 10vw;
-            font-weight: 700;
-            font-family: 'Poppins', sans-serif;
-            color: rgba(0, 0, 0, 0.03);
-            pointer-events: none;
-        }
-        .student-details-box {
-            border: 1px solid #aaa; /* Changed from dashed */
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        .student-details-box .detail-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 18px;
-        }
-        .student-details-box .detail-row:last-child {
-            margin-bottom: 0;
-        }
-        .student-details-box span {
-            font-weight: 700;
-            color: var(--heading-color);
-            margin-right: 8px;
-            flex-shrink: 0;
-        }
-        .blank-space {
-            border-bottom: 1.5px solid #333; /* Darker line */
-            width: 100%;
-        }
-        
-
-        /* --- Footer Design --- */
-        .page-footer {
-            font-size: 12px;
-            text-align: center;
-            flex-shrink: 0; 
-            font-weight: 700;
-        }
-        .page-footer .contact-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 5px;
-        }
-        .page-footer .address {
-            margin-top: 5px;
-            font-size: 11px;
-            width: 100%;
-        }
-
-        /* --- Back Page Card Layout (3-COLUMN GRID) --- */
-        .back-page .back-page-content {
-            flex-grow: 1;
-        }
-        .back-page h2 {
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            color: var(--heading-color);
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 22px;
-        }
-        .course-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            gap: 12px;
-        }
-        .course-card {
-            width: calc(33.333% - 8px); 
-            border: 1.5px solid #555; /* Darker border */
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-        }
-        .course-card-header {
-            border-bottom: 1.5px solid #aaa; /* Darker border */
-            padding-bottom: 6px;
-            margin-bottom: 8px;
-        }
-        .course-card-header .course-name {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700; /* Bolder */
-            font-size: 13px;
-            color: #000;
-        }
-        .course-card-header .duration {
-            font-style: italic;
-            font-size: 10px;
-            color: #333;
-        }
-        .course-card-content ul {
-            list-style-type: '▸  ';
-            padding-left: 12px;
-            margin: 0;
-            font-size: 10.5px;
-            line-height: 1.4;
-        }
-        .course-card-content li {
-            margin-bottom: 3px;
-        }
-        .ai-highlight {
-            font-weight: 700;
-            color: #000;
-            margin-top: auto;
-            padding-top: 6px;
-            border-top: 1px dashed #aaa;
-            font-size: 10px;
-            line-height: 1.3;
-        }
-
-        /* --- Print ke liye CSS --- */
-        @media print {
-            body { background-color: white; padding: 0; }
-            .page { box-shadow: none; margin: 0; width: 100%; height: auto; border: 1.5px solid #000; }
-            .back-page { page-break-before: always; }
-        }
-    </style>
+    <title>Document</title>
 </head>
 <body>
-
-    <!-- ================= FRONT PAGE ================= -->
-    <div class="page front">
-        <div class="front-page-container">
-            <header class="page-header">
-                <div class="institute-name">HUNAR SEEKHO ACADEMY</div>
-                <div class="tagline">Jahan Hunar Banta Hai Career!</div>
-            </header>
-
-            <div class="front-page-content">
-                <aside class="sidebar">
-                    <h4>Humein Kyun Chunein?</h4>
-                    <ul>
-                        <li><span class="icon">✔</span> ISO 9001:2015 Certified</li>
-                        <li><span class="icon">✔</span> MSME Registered Institute</li>
-                        <li><span class="icon">✔</span> Certified & Industry Trainers</li>
-                        <li><span class="icon">✔</span> 100% Practical Training</li>
-                        <li><span class="icon">✔</span> Live Project Based Learning</li>
-                        <li><span class="icon">✔</span> Spoken English Classes</li>
-                        <li><span class="icon">✔</span> Personality Development</li>
-                        <li><span class="icon">✔</span> Interview Preparation</li>
-                        <li><span class="icon">✔</span> Industry-Recognized Certificate</li>
-                        <li><span class="icon">✔</span> EMI Facility Available</li>
-                        <li><span class="icon">✔</span> Job Placement Assistance</li>
-                    </ul>
-                    <h4 style="margin-top: 25px;">Our Top Courses</h4>
-                     <ul>
-                        <li><span class="icon">▸</span> Basic & Advanced Excel</li>
-                        <li><span class="icon">▸</span> Diploma (DCA)</li>
-                        <li><span class="icon">▸</span> Advanced Diploma (ADCA)</li>
-                        <li><span class="icon">▸</span> Graphic Designing</li>
-                        <li><span class="icon">▸</span> Full Stack Development</li>
-                        <li><span class="icon">▸</span> Data Analysis</li>
-                    </ul>
-                </aside>
-
-                <main class="main-area">
-                    <div class="student-details-box">
-                        <div class="detail-row">
-                            <span>Name:</span> <div class="blank-space"></div>
-                        </div>
-                         <div class="detail-row">
-                            <span>Contact:</span> <div class="blank-space"></div>
-                        </div>
-                        <div class="detail-row">
-                            <span>Interested in Course:</span> <div class="blank-space"></div>
-                        </div>
-                         <div class="detail-row">
-                            <span>Counselling By:</span> <div class="blank-space"></div>
-                        </div>
-                        <div class="detail-row">
-                            <span>Date:</span> <div class="blank-space"></div>
-                        </div>
-                    </div>
-                </main>
-
-            </div>
-
-            <footer class="page-footer">
-                <div class="contact-info">
-                    <span>📞 9958998922</span>
-                    <span>🌐 www.hunarsikho.com</span>
-                    <span>📧 team.hunarseekho@gmail.com</span>
-                </div>
-                <div class="address">📍 1625-B/3, 1st Floor, Najafgarh Thana Rd, opp. HP Petrol Pump, Najafgarh, New Delhi-110043</div>
-            </footer>
-        </div>
-    </div>
-
-    <!-- ================= BACK PAGE ================= -->
-    <div class="page back-page">
-        <div class="back-page-content">
-            <h2>Our Best Courses</h2>
-            <div class="course-container">
-                
-                <div class="course-card">
-                    <div class="course-card-header">
-                        <div class="course-name">Basic Computer Course</div>
-                        <div class="duration">Duration: 3 Months</div>
-                    </div>
-                    <div class="course-card-content">
-                        <ul>
-                            <li>Computer Fundamentals & Windows 11</li>
-                            <li>MS Office: Word, Excel, PowerPoint</li>
-                            <li>Digital Collaboration (Teams, G-Suite)</li>
-                            <li>Internet, Email & Digital Payments</li>
-                            <li>Typing Skills (English)</li>
-                            <li>Intro to Cloud (OneDrive)</li>
-                        </ul>
-                    </div>
-                    <div class="ai-highlight">★ AI Tools: ChatGPT, Gemini for Queries, etc.</div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-card-header">
-                        <div class="course-name">Advanced Excel</div>
-                        <div class="duration">Duration: 3 Months</div>
-                    </div>
-                    <div class="course-card-content">
-                        <ul>
-                            <li>Advanced Formulas & Functions</li>
-                            <li>Interactive Dashboards & Slicers</li>
-                            <li>Power Query for ETL Processes</li>
-                            <li>Intro to DAX & Power Pivot</li>
-                            <li>Data Storytelling with Charts</li>
-                            <li>VBA Macros for Automation</li>
-                        </ul>
-                    </div>
-                    <div class="ai-highlight">★ AI Tools: ChatGPT for Formulas, Excel AI, etc.</div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-card-header">
-                        <div class="course-name">Diploma in Computer Application (DCA)</div>
-                        <div class="duration">Duration: 12 Months</div>
-                    </div>
-                    <div class="course-card-content">
-                        <ul>
-                            <li>Office Suite & Advanced Excel</li>
-                            <li>Programming: C, C++, Python</li>
-                            <li>Databases: SQL with MySQL</li>
-                            <li>Web Dev: HTML, CSS, JavaScript</li>
-                            <li>Graphic Design: Photoshop Basics</li>
-                            <li>Website CMS (WordPress)</li>
-                            <li>IT Fundamentals & Cloud Basics</li>
-                        </ul>
-                    </div>
-                    <div class="ai-highlight">★ AI Tools: GitHub Copilot, ChatGPT, Replit AI, etc.</div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-card-header">
-                        <div class="course-name">Advanced Diploma (ADCA)</div>
-                        <div class="duration">Duration: 18 Months</div>
-                    </div>
-                    <div class="course-card-content">
-                        <ul>
-                            <li>All DCA Modules + Core Java</li>
-                            <li>Advanced Web: React.js & Node.js</li>
-                            <li>Advanced DB: MongoDB</li>
-                            <li>Mobile App Dev: Flutter Basics</li>
-                            <li>Git & GitHub for Collaboration</li>
-                            <li>Intro to DevOps & CI/CD</li>
-                            <li>Major Project with Cloud Deployment</li>
-                        </ul>
-                    </div>
-                    <div class="ai-highlight">★ AI Tools: GitHub Copilot, v0.dev, Tabnine, etc.</div>
-                </div>
-                
-                <div class="course-card">
-                    <div class="course-card-header">
-                        <div class="course-name">Full Stack Development</div>
-                        <div class="duration">Duration: 6 Months</div>
-                    </div>
-                    <div class="course-card-content">
-                        <ul>
-                            <li>Frontend: HTML, CSS, React.js</li>
-                            <li>State Management (Redux)</li>
-                            <li>Backend: Node.js, Express.js</li>
-                            <li>Database: MongoDB & MySQL</li>
-                            <li>APIs & Version Control (Git)</li>
-                            <li>Containerization with Docker</li>
-                            <li>Deployment & Live Project</li>
-                        </ul>
-                    </div>
-                    <div class="ai-highlight">★ AI Tools: GitHub Copilot, Codeium, v0.dev, etc.</div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-card-header">
-                        <div class="course-name">Data Analysis</div>
-                        <div class="duration">Duration: 6 Months</div>
-                    </div>
-                    <div class="course-card-content">
-                        <ul>
-                            <li>Python for Data Science</li>
-                            <li>Advanced Excel for Analysis</li>
-                            <li>Database Management with MySQL</li>
-                            <li>Dashboarding with Power BI</li>
-                            <li>Statistical Analysis</li>
-                            <li>Data Cleaning & Preprocessing</li>
-                            <li>End-to-End Project with Storytelling</li>
-                        </ul>
-                    </div>
-                    <div class="ai-highlight">★ AI Tools: ChatGPT, Tableau AI, Power BI AI, etc.</div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-card-header">
-                        <div class="course-name">Graphic Designing</div>
-                        <div class="duration">Duration: 4 Months</div>
-                    </div>
-                    <div class="course-card-content">
-                        <ul>
-                            <li>Adobe Photoshop & Illustrator</li>
-                            <li>CorelDRAW / Figma</li>
-                            <li>Logo Design & Branding</li>
-                            <li>Canva for Social Media</li>
-                            <li>AI in Design (Generative Tools)</li>
-                            <li>UI/UX Design Concepts</li>
-                            <li>Portfolio Creation</li>
-                        </ul>
-                    </div>
-                    <div class="ai-highlight">★ AI Tools: Midjourney, Adobe Firefly, DALL-E, etc.</div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-card-header">
-                        <div class="course-name">Video Editing</div>
-                        <div class="duration">Duration: 4 Months</div>
-                    </div>
-                    <div class="course-card-content">
-                        <ul>
-                            <li>Adobe Premiere Pro & After Effects</li>
-                            <li>Audio Editing in Audition</li>
-                            <li>Color Grading & Correction</li>
-                            <li>Motion Graphics & Titling</li>
-                            <li>AI-powered Editing & Effects</li>
-                            <li>Reels & Shorts Editing</li>
-                            <li>YouTube Video Editing</li>
-                        </ul>
-                    </div>
-                    <div class="ai-highlight">★ AI Tools: Premiere Pro AI, RunwayML, etc.</div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-card-header">
-                        <div class="course-name">Digital Marketing</div>
-                        <div class="duration">Duration: 4 Months</div>
-                    </div>
-                    <div class="course-card-content">
-                        <ul>
-                            <li>SEO & SEM (Google Ads)</li>
-                            <li>Social Media Marketing (SMM)</li>
-                            <li>Content & Email Marketing</li>
-                            <li>Google Analytics & Reporting</li>
-                            <li>Performance Marketing & Automation</li>
-                            <li>Website Planning (WordPress)</li>
-                            <li>Affiliate Marketing Basics</li>
-                        </ul>
-                    </div>
-                    <div class="ai-highlight">★ AI Tools: Jasper, Copy.ai, SurferSEO, etc.</div>
-                </div>
-                
-                <div class="course-card">
-                    <div class="course-card-header">
-                        <div class="course-name">Python Programming</div>
-                        <div class="duration">Duration: 3 Months</div>
-                    </div>
-                    <div class="course-card-content">
-                        <ul>
-                            <li>Core & Advanced Python</li>
-                            <li>Object-Oriented Programming</li>
-                            <li>Libraries: NumPy & Pandas Intro</li>
-                            <li>File Handling & API Basics</li>
-                            <li>Database with SQLite</li>
-                            <li>Automation Scripts & Projects</li>
-                        </ul>
-                    </div>
-                    <div class="ai-highlight">★ AI Tools: GitHub Copilot, Codeium, etc.</div>
-                </div>
-                
-                <div class="course-card">
-                    <div class="course-card-header">
-                        <div class="course-name">Java Programming</div>
-                        <div class="duration">Duration: 3 Months</div>
-                    </div>
-                    <div class="course-card-content">
-                        <ul>
-                            <li>Core Java & OOPS Concepts</li>
-                            <li>Data Structures & Algorithms</li>
-                            <li>Exception Handling & Collections</li>
-                            <li>Multithreading Basics</li>
-                            <li>Database with JDBC</li>
-                            <li>Building REST APIs with Spring Boot</li>
-                        </ul>
-                    </div>
-                    <div class="ai-highlight">★ AI Tools: Amazon CodeWhisperer, etc.</div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-card-header">
-                        <div class="course-name">C & C++ Programming</div>
-                        <div class="duration">Duration: 3 Months</div>
-                    </div>
-                    <div class="course-card-content">
-                        <ul>
-                            <li>Programming Fundamentals</li>
-                            <li>Pointers & Memory Management</li>
-                            <li>Object-Oriented Programming (C++)</li>
-                            <li>Data Structures (Arrays, Stacks)</li>
-                            <li>Standard Template Library (STL)</li>
-                            <li>Competitive Programming Basics</li>
-                        </ul>
-                    </div>
-                    <div class="ai-highlight">★ AI Tools: Replit AI, ChatGPT for Logic, etc.</div>
-                </div>
-
-            </div>
-        </div>
-        <footer class="page-footer">
-            <div class="contact-info">
-                <span>📞 9958998922</span>
-                <span>🌐 www.hunarsikho.com</span>
-                <span>📧 team.hunarseekho@gmail.com</span>
-            </div>
-            <div class="address">📍 1625-B/3, 1st Floor, Najafgarh Thana Rd, opp. HP Petrol Pump, Najafgarh, New Delhi-110043</div>
-        </footer>
-    </div>
-
+    <form action="">
+        <table>
+        <tr>
+            <th colspan="2">Student Registation</th>
+        </tr>
+        <tr>
+            <td><label for="roll">Roll No : </label></td>
+            <td><input type="number" name="roll" id="roll"></td>
+        </tr>
+        <tr>
+            <td><label for="name">Student's Name : </label></td>
+            <td><input type="text" name="name" id="name" placeholder="First Name">.<input type="text" name="name" id="lname" placeholder="Last Name"></td>
+        </tr>
+        <tr>
+            <td><label for="fname">Father's Name : </label></td>
+            <td><input type="text" name="fname" id="fname"></td>
+        </tr>
+        <tr>
+            <td><label for="date">Date of Birth : </label></td>
+            <td><input type="date" name="date" id="date"></td>
+        </tr>
+        <tr>
+            <td><label for="no">Mobile No : </label></td>
+            <td><input maxlength="10" type="number" name="no" id="no"></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email Id : </label></td>
+            <td><input type="email" name="email" id="email"></td>
+        </tr>
+        <tr>
+            <td><label for="pass">Password : </label></td>
+            <td><input type="password" name="pass" id="pass"></td>
+        </tr>
+        <tr>
+            <td>Gender :</td>
+            <td><input type="radio" name="gender" id="">Male <input type="radio" name="gender" id="">Female</td>
+        </tr>
+        <tr>
+            <td><label for="dept">Department : </label></td>
+            <td><input type="text" name="dept" id="dept"></td>
+        </tr>
+        <tr>
+            <td><label for="course">Course : </label></td>
+            <td><select name="course" id="course">
+                <option value="">Choose Any One : </option>
+                <option value="bca">BCA</option>
+                <option value="mca">MCA</option>
+                <option value="bba">BBA</option>
+                <option value="mba">MBA</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>Student Photo :</td>
+            <td><input type="file" name=""></td>
+        </tr>
+        <tr>
+            <td><label for="city">City : </label></td>
+            <td><input type="text" name="city" id="city"></td>
+        </tr>
+        <tr>
+            <td><label for="adr">Address : </label></td>
+            <td><textarea name="adr" id="adr"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit">Registration</button></td>
+        </tr>
+    </table>
+    </form>
 </body>
 </html>
