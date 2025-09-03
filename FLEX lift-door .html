@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #door{
+            width: 400px;
+            height: 500px;
+            border: 1px solid black;
+            display: flex;
+            margin: 100px auto 0 auto;
+            overflow: hidden;
+        }
+        .left,.right{
+            width: 50%;
+            height: 100%;
+            transition: 2s;
+        }
+        .left{
+            background: red;
+        }
+        .right{
+            background: blue;
+        }
+        #door:hover .left{
+            transform: translateX(-200px);
+        }
+                #door:hover .right{
+            transform: translateX(200px);
+        }
+    </style>
+</head>
+<body>
+    <div id="door">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
