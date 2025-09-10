@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid red;
+        }
+        img{
+            width: 10%;
+            /* animation-name: tom;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear; */
+            animation: tom 3s infinite linear;
+        }
+        @keyframes tom {
+            0%{
+                transform: translateX(0) rotateY(180deg);
+            }
+
+            50%{
+                transform: translateX(1200px) rotateY(180deg);
+            }
+            55%{
+                transform: translateX(1200px) rotateY(0deg);
+
+            }
+            100%{
+                transform: translateX(0) rotateY(0deg);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+    <div>
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyYzJsOW1yaWtscWl4dWgyb2gwYmh5MG05NXFsejIxeDFhdnBhcmp4aiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/NqYpeCjGW4KEGE7Qir/source.gif" alt="">
+    </div>
+</body>
+</html>
