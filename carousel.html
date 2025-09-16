@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        #carousel {
+            width: 500%;
+            height: 100vh;
+            display: flex;
+            animation: car 10s linear infinite;
+
+        }
+
+        @keyframes car {
+
+            0%,
+            15% {
+                transform: translateX(0);
+            }
+
+            20%,
+            35% {
+                transform: translateX(-20%);
+            }
+
+            40%,
+            55% {
+                transform: translateX(-40%);
+            }
+
+            60%,
+            75% {
+                transform: translateX(-60%);
+            }
+
+            80%,
+            95% {
+                transform: translateX(-80%);
+            }
+
+
+        }
+
+        #carousel div:nth-child(1) {
+            background-color: rgb(236, 143, 143);
+        }
+
+        #carousel div:nth-child(2) {
+            background-color: rgb(253, 114, 247);
+        }
+
+        #carousel div:nth-child(3) {
+            background-color: rgb(3, 227, 156);
+        }
+
+        #carousel div:nth-child(4) {
+            background-color: rgb(135, 88, 253);
+        }
+
+        #carousel div:nth-child(5) {
+            background-color: rgb(241, 252, 33);
+        }
+
+        #carousel div {
+            width: 20%;
+            height: inherit;
+            font-size: 700px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="carousel">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+</body>
+
+</html>
