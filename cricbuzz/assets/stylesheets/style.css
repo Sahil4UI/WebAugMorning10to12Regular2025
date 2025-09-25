@@ -1,9 +1,11 @@
 body{
     margin: 0;
+    font-family: Helvetica, sans-serif;
 }
 
 *{
     box-sizing: border-box;
+
 }
 
 h1,h2,h3,h4,h5,h6,p{
@@ -50,15 +52,41 @@ a{
     display: block;
     clear: both;
  }
+ #container{
+    width: 1000px;
+    margin: 10px auto 0 auto;
+ }
  #header{
     background-color: #009270;
  }
  #header .logo{
-    width: 10%;
+    width: 14%;
+ }
+ #header .logo a{
+    display: block;
+    padding: 10px 22px;
  }
  #nav ul li{
     display: inline-block;
  }
  #nav ul li a{
     color: white;
+    font-size: 14px;
+    display: block;
+    padding: 20px 6px;
+ }
+ #nav ul li a i{
+    font-size: 10px;
+    margin-left: 5px;
+ }
+
+ #nav ul li a:hover{
+    background-color: #028062;
+ }
+
+ #nav ul li:last-child a{
+    padding: 8px 25px;
+    background-color: white;
+    color: black;
+    border-radius: 20px;
  }
