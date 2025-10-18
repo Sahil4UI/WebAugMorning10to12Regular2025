@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .door {
+            width: 300px;
+            height: 400px;
+            border: 1px solid black;
+            display: flex;
+            margin: 100px auto 0 auto;
+            perspective: 1000px;
+        }
+
+        .left,
+        .right {
+            width: 50%;
+            height: inherit;
+            transition: 1s;
+        }
+
+        .left {
+            background-color: red;
+            transform-origin: left;
+
+        }
+
+        .right {
+            background-color: aqua;
+            transform-origin:right;
+
+        }
+           
+            /* .door:hover .left{
+                transform: translateX(-100%);
+            }
+                        .door:hover .right{
+                transform: translateX(100%);
+            } */
+
+                        .door:hover .left{
+                transform: rotateY(-180deg);
+            }
+                        .door:hover .right{
+                transform: rotateY(180deg);
+            }
+
+    </style>
+</head>
+
+<body>
+    <div class="door">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+
+</html>
